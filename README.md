@@ -21,3 +21,4 @@ web dinámico que actúa como monitor de cabecera del paciente.
 - Visualización en tiempo real de signos vitales
 - Interfaz web dinámica como monitor de cabecera
 - Sistema de alertas basado en rangos clínicos
+
