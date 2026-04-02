@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monitor de Signos Vitales - Simulador</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="monitor">
+      <header class="topbar">
+        <div class="brand">MONITOR MULTIPARAMETRO</div>
+        <div class="top-status">
+          <span id="modeLabel" class="pill">SIM</span>
+          <span id="serialStatus" class="pill">SERIAL OFF</span>
+          <span id="clock" class="pill">--:--:--</span>
+        </div>
+      </header>
+
+      <section class="layout">
+        <div class="card wave">
+          <div class="card-title">ECG II</div>
+          <canvas id="ecgCanvas" width="900" height="240"></canvas>
+          <div class="wave-footer">
+            <div class="stat">
+              <span class="stat-label">BPM</span>
+              <span class="stat-value" id="bpmValue">--</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">PA</span>
+              <span class="stat-value" id="paValue">--</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Temp</span>
+              <span class="stat-value" id="tempValue">--</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card vitals-panel">
+          <div class="vital-stack">
+            <div class="vital-block spo2">
+              <div class="vital-title">SpO2</div>
+              <div class="vital-number" id="spo2Value">--</div>
+              <div class="vital-unit">%</div>
+            </div>
+            <div class="vital-block bpm">
+              <div class="vital-title">BPM</div>
+              <div class="vital-number" id="bpmValueSide">--</div>
+              <div class="vital-unit">lpm</div>
+            </div>
+          </div>
+          <div class="alert" id="alertBox">ESTADO: NORMAL</div>
+        </div>
+      </section>
+
+      <section class="layout">
+        <div class="card wave small">
+          <div class="card-title">PLETH (SpO2)</div>
+          <canvas id="plethCanvas" width="900" height="140"></canvas>
+        </div>
+        <div class="card wave small">
+          <div class="card-title">RESPIRACION</div>
+          <canvas id="respCanvas" width="900" height="140"></canvas>
+        </div>
+      </section>
+
+      <section class="bottom">
+        <div class="card controls-card">
+          <div class="card-title">Controles</div>
+          <div class="controls">
+            <button id="startBtn">Iniciar</button>
+            <button id="stopBtn" disabled>Detener</button>
+            <button id="connectBtn">Conectar Serial</button>
+            <button id="disconnectBtn" disabled>Desconectar</button>
+          </div>
+
+          <div class="control-group">
+            <div class="group-title">Simulacion</div>
+            <label>
+              Escenario Clinico
+              <select id="scenarioSelect">
+                <option value="normal">Normal</option>
+                <option value="shock">Shock Hipovolemico</option>
+                <option value="sepsis">Sepsis</option>
+                <option value="asma">Crisis Asmatica</option>
+                <option value="iam">Infarto Agudo (IAM)</option>
+              </select>
+            </label>
+            <label class="inline">
+              Alarmas Sonoras
+              <input id="alarmToggle" type="checkbox" checked />
+            </label>
+            <label>
+              BPM Base
+              <input id="bpmBase" type="range" min="40" max="180" value="80" />
+              <span id="bpmBaseLabel">80</span>
+            </label>
+            <label>
+              SpO2 Base
+              <input id="spo2Base" type="range" min="85" max="100" value="97" />
+              <span id="spo2BaseLabel">97</span>
+            </label>
+            <label>
+              PA Sist
+              <input id="paSysBase" type="range" min="90" max="180" value="120" />
+              <span id="paSysBaseLabel">120</span>
+            </label>
+            <label>
+              PA Diast
+              <input id="paDiaBase" type="range" min="60" max="120" value="80" />
+              <span id="paDiaBaseLabel">80</span>
+            </label>
+            <label>
+              Temp Base
+              <input id="tempBase" type="range" min="350" max="420" value="370" />
+              <span id="tempBaseLabel">37.0</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="card log-card">
+          <div class="card-title">Registros</div>
+          <div id="logBox" class="log"></div>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

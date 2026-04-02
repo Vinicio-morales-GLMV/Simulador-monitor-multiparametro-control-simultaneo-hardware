@@ -1,0 +1,280 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #020409;
+  color: #d4fef0;
+}
+
+.monitor {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 18px 18px 24px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: #050b12;
+  border: 1px solid #0e1a26;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.brand {
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: #48f5d1;
+}
+
+.top-status {
+  display: flex;
+  gap: 10px;
+}
+
+.pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #0b1a24;
+  border: 1px solid #0f2a3a;
+  color: #7fffd4;
+  font-size: 0.85rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 16px;
+}
+
+.card {
+  background: #050b12;
+  border: 1px solid #0f1f2e;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.card-title {
+  font-size: 0.9rem;
+  color: #93e9d6;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.wave {
+  min-height: 360px;
+}
+
+.wave.small {
+  min-height: 220px;
+}
+
+canvas {
+  width: 100%;
+  height: 240px;
+  background: #020406;
+  border: 1px solid #0f2a3a;
+  border-radius: 10px;
+}
+
+#plethCanvas,
+#respCanvas {
+  height: 140px;
+}
+
+.wave-footer {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.stat {
+  background: #050f17;
+  border: 1px solid #0f2a3a;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+.stat-label {
+  color: #7ddfc9;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.6rem;
+  margin-top: 6px;
+  color: #4ef9b1;
+}
+
+.vitals-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.vital-stack {
+  display: grid;
+  gap: 12px;
+}
+
+.vital-block {
+  background: #040a10;
+  border: 1px solid #0f2a3a;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+
+.vital-block.spo2 {
+  border-color: #0a3a5a;
+  box-shadow: 0 0 10px rgba(0, 120, 255, 0.15);
+}
+
+.vital-block.bpm {
+  border-color: #0f3a2f;
+  box-shadow: 0 0 10px rgba(0, 255, 170, 0.12);
+}
+
+.vital-title {
+  color: #7ddfc9;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.vital-number {
+  font-size: 2.4rem;
+  color: #54f6a8;
+  margin: 10px 0 4px;
+}
+
+.vital-block.spo2 .vital-number {
+  color: #4cc9ff;
+}
+
+.vital-unit {
+  font-size: 0.8rem;
+  color: #6fbba8;
+}
+
+.alert {
+  padding: 10px;
+  border-radius: 8px;
+  background: #0b3b2c;
+  color: #bfffe8;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.alert.warn {
+  background: #523312;
+  color: #ffd6a1;
+}
+
+.alert.critical {
+  background: #4a1212;
+  color: #ffd0d0;
+}
+
+.bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+button {
+  background: #0f4c5c;
+  color: #d7fff2;
+  border: 1px solid #0f2a3a;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #13637a;
+}
+
+button:disabled {
+  background: #0c1e27;
+  color: #6b9c90;
+  cursor: not-allowed;
+}
+
+.control-group {
+  display: grid;
+  gap: 10px;
+}
+
+.group-title {
+  font-size: 0.85rem;
+  color: #7ddfc9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.control-group label {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #bfe9dd;
+}
+
+.control-group select {
+  width: 100%;
+  grid-column: 1 / -1;
+  background: #03070b;
+  border: 1px solid #0f2a3a;
+  color: #d4fef0;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.control-group label.inline {
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+}
+
+.control-group input[type="range"] {
+  width: 100%;
+  grid-column: 1 / -1;
+}
+
+.log {
+  height: 240px;
+  overflow: auto;
+  background: #03070b;
+  border: 1px solid #0f2a3a;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 980px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom {
+    grid-template-columns: 1fr;
+  }
+}
